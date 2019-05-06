@@ -22,7 +22,16 @@ Baseline Goals:
 
 ● Use a buzzer that receives the data and activates when the user falls asleep
 
-Reach Goals:
+Reach Goal:
 
-Start an app on the Samsung Galaxy Watch or some equivalent wearable device to process this data and display it graphically
+● Start an app on the Samsung Galaxy Watch or some equivalent wearable device to process this data and display it graphically
 
+Need to Learn More in Depth:
+
+● Samsung Galaxy/Android API
+
+● Wi-Fi/Cloud
+
+● How to classify that a person has fallen asleep
+
+● Photon
