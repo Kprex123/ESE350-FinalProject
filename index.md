@@ -91,6 +91,10 @@ Week 3 (March 31 - April 7):
 
 We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 since it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth. After many unsuccessful attempts to get the ESP32-WROOM-32 running, we realized that we could just use an Mbed and an ESP8266 instead to achieve a similar (if not an entirely better) result.
 
+A 3-D accelerometer was used first, since the lab already had some in stock. The accelerometer's "baseline" readings were recorded so that rapid changes in velocity could be compared to that baseline. Then print statements were sent to the terminal only when large changes were recorded.
+
+We unfortunately did not realize the ECG sensors and the eye movement sensors would need extra cables to properly clip on, so we stripped some wires and wrapped them around the sensor electrodes to increase signal clarity as much as possible.
+
 Week 4 (April 8 - April 15):
 
 
