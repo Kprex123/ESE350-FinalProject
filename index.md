@@ -85,3 +85,8 @@ Need to Learn More in Depth (Updated):
 ● How to classify eye movement
 
 ● Photon (main microcontroller)
+
+
+Week 3 (March 31 - April 7):
+
+We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 since it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth. After many unsuccessful attempts to get the ESP32-WROOM-32 running, we realized that we could just use an Mbed and an ESP8266 instead to achieve a similar (if not entirely better) result.
