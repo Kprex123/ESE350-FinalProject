@@ -97,6 +97,7 @@ We unfortunately did not realize the ECG sensors and the eye movement sensors wo
 
 Week 4 (April 8 - April 15):
 
+A breakout board and proper cables were ordered for the second demo. The ECG sensors seemed better at reading heart rate than breathing rate, so we did not implement breathing rate in the final product. To enhance the heart rate sensor, we implemented an instrumentation amplifier to increase the ouput's gain.
 
 Week 5 (April 16 - April 23):
 
