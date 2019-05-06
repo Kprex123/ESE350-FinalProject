@@ -14,13 +14,13 @@ The initial proposal for our final project was first enacted on April 22. The pr
 
 Baseline Goals:
 
-● Use a wearable sensor to determine when the user is falling asleep
+● Use a wearable sensor to determine when the user is falling asleep (either breathing rate, heart rate, or head movement when the user is "nodding off")
 
 ● Measure when and for how long they are asleep
 
-● Send that data to the Cloud
+● Send that data to the Cloud (the Cloud can store data and transfer it to different platforms, like a watch)
 
-● Use a buzzer that receives the data and activates when the user falls asleep
+● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should not be painful)
 
 Reach Goal:
 
@@ -35,3 +35,5 @@ Need to Learn More in Depth:
 ● How to classify that a person has fallen asleep
 
 ● Photon
+
+For testing, Katrina herself shall be the subject since she has severe anemia. This causes her blood cells to bind to oxygen at a lesser rate, therefore her body exhausts its energy quickly. This means she falls unconscious at unpredictable hours, making her a prime test subject.
