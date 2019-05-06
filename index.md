@@ -97,13 +97,19 @@ A 3-D accelerometer was used first, since the lab already had some in stock. It 
 
 We unfortunately did not realize the ECG sensors and the eye movement sensors would need extra cables to properly clip on, so we stripped some wires and wrapped them around the sensor electrodes to increase signal clarity as much as possible. This still resulted in noisy outputs, so we were unable to present reliable data for the first demo.
 
+
 Week 4 (April 8 - April 15):
 
 A breakout board and proper cables were ordered for the second demo. They were also powered by the Mbed's 3.3 volt output. The ECG sensors seemed better at reading heart rate than breathing rate, so we did not implement breathing rate in the final product. To enhance the heart rate sensor, we implemented an instrumentation amplifier (AD620AN) to increase the ouput's gain by 1000 using a 50 Ohm resistor, since the voltage varied around 1 mV initially. The amplifier needed a much larger voltage supply however, so it was powered externally by positive and negative 9 volts from a power supply in the lab.
 
-We also switched to the MRF24J40 radio chips instead of the ESP8266 Wi-Fi modules this week, since it only requires that both chips be relatively near each other and that they are sharing the same channel. One chip was connected to the Mbed in current use (and powered by its 3.3 volt output) so that we could test that one alone and then later implement the second Mbed and its MRF24J40. We looked at some example code for the MRF24J40, but it was difficult to find much due to the lack of documentation. Eventually an instructor was able to find helpful documentation for us, and we began once again with a header file and its corresponding .cpp file.
+We also switched to the MRF24J40 radio chips instead of the ESP8266 Wi-Fi modules this week, since it only requires that both chips be relatively near each other and that they are sharing the same channel. One chip was connected to the Mbed in current use (and powered by its 3.3 volt output) so that we could test that one alone and then later implement the second Mbed and its MRF24J40.
+
 
 Week 5 (April 16 - April 23):
+
+To reduce the noise from the heart rate sensor, we built a lowpass filter that took in the amplified signal from the instrumentation amplifier. It worked quite well and smoothed out the signal. The resistor value was 2 kOhms and 3 capacitors were used: one at 1 uF and 2 at 4.5 uF. We then built a PCB in Altium to hold both the amplifier and the filter. Some headers were also added to that PCB for the external power, as well as input and output wires.
+
+We looked at some example code for the MRF24J40, but it was difficult to find much due to the lack of documentation. Eventually an instructor was able to find helpful documentation for us, and we began once again with a header file and its corresponding .cpp file. The Mbeds only needed to communicate in one direction, with one Mbed transmitting (the one on the head) and the other receiving (the one on the wrist). This increased our code's clarity.
 
 
 Week 6 (April 24 - May 1):
