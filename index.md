@@ -91,3 +91,15 @@ Week 3 (March 31 - April 7):
 
 We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 since it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth. After many unsuccessful attempts to get the ESP32-WROOM-32 running, we realized that we could just use an Mbed and an ESP8266 instead to achieve a similar (if not an entirely better) result.
 
+Week 4 (April 8 - April 15):
+
+
+Week 5 (April 16 - April 23):
+
+
+Week 6 (April 24 - May 1):
+
+
+Week 7 (May 2 - May 8):
+
+We repaired and finished our project. We discovered that one pin was connected to the wrong port of the MRF, and one of the two MRFs was not working. We had switched that MRF out with a different one, in a previous attempt to get our project to work, but that MRF was also not working. Eventually, we successfully obtained two properly working MRFs. With the radios MRFs and MBeds now working and communicating with each other via our written code for sending and receiving messages, we began modifying the code such that the data from all sensors—the heart rate, eye movement, and accelerometer—was being analyzed. If the heart rate was lower than average or the accelerometer was bruptly shook, the motor on the larger breadboard would vibrate for 10 seconds. If no blinking was detected for 20 seconds or more, the motor on the smaller breadboard would vibrate for 10 seconds. We decided that the larger breadboard was too large and simply inconvenient to have on a headband, so we changed our design to still include the smaller breadboard on a wearable wristband, but the larger breadboard is stuck on the inside of a hoodie pocket, making it less conspicuous than it was on the headband. To attach the breadboards to their respective wearable articles, we used electrical tape. Thus, if a person is resting or nodding off, the motor will vibrate in their hoodie pocket (a small alert, similar to if someone's phone went off in their pocket). However, if the person is asleep, the motor will vibrate in their wristband (more likely to wake the user up, since there is direct contact between them and the motor). 
