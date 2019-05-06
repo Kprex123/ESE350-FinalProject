@@ -1,4 +1,4 @@
-Slap-a-Nap Headband
+Slap-a-Nap Pack
 
 ESE 350-001
 
@@ -22,7 +22,7 @@ Baseline Goals:
 
 ● Send that data to the Cloud (the Cloud can store data and transfer it to different platforms, like a watch)
 
-● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should not be painful)
+● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should also not cause pain)
 
 
 Reach Goal:
@@ -53,25 +53,25 @@ Overall System Architecture:
 
 Our system has a closed loop because it operates under the following process:
 
-The person starts falling asleep -> The sensors detects the person falling asleep -> The buzzer is activated by the sensors -> The person wakes up -> The sensor goes back to its original state of waiting to activate the buzzer -> The person starts falling asleep again -> … (Repeats cyclically)
+The person starts falling asleep -> The sensors detect the person falling asleep -> The buzzer is activated by the sensors -> The person wakes up -> The sensor goes back to its original state of waiting to activate the buzzer -> The person starts falling asleep again -> … (Repeats cyclically)
 
 
 Baseline Goals (Updated):
 
-● Use a wearable sensor (ECoG) to determine when the user is falling asleep
+● Use a sensor (ECoG) to determine when the user is falling asleep
 
 ● Make the mechanism wearable
 
 ● Measure when and for how long they are asleep
 
-● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should not be painful)
+● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should also not cause pain)
 
 
 Stretch Goals (Updated):
 
 ● Determine levels of exhaustion (starting to fall asleep versus being fully asleep) via breathing rate sensor and an accelerometer (head movement when the user is "nodding off")
 
-● Use a client/server to send and receive information about the user’s unintentional-sleeping patterns.
+● Use a client/server to send and receive information about the user’s unintentional-sleeping patterns
 
 ● Control amount of vibration based on how heavily asleep the user is
 
@@ -89,15 +89,19 @@ Need to Learn More in Depth (Updated):
 
 Week 3 (March 31 - April 7):
 
-We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 since it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth. After many unsuccessful attempts to get the ESP32-WROOM-32 running, we realized that we could just use an Mbed and an ESP8266 instead to achieve a similar (if not an entirely better) result.
+We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 because it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth, which used hybrid C++. After many unsuccessful attempts to get the ESP32-WROOM-32 registered and running, we realized that we could just use an Mbed and an ESP8266 Wi-Fi module instead to achieve a similar (if not an entirely better) result. 
 
-A 3-D accelerometer was used first, since the lab already had some in stock. The accelerometer's "baseline" readings were recorded so that rapid changes in velocity could be compared to that baseline. Then print statements were sent to the terminal only when large changes were recorded.
+The balance bot lab for this course was our starting point for the Wi-Fi code we would need to implement. We were unfortunately unable to completely finish that lab (specifically part 3), so we had to spend some time trying to figure out how to communicate between the two Mbeds. We tried implementing a header file and its corresponding .cpp file, but came across an error (L6320W) that stated it could not find the argument "os_cb_sections". Some time was spent debugging this, but we received advice from an instructor that radio may be a better option.
 
-We unfortunately did not realize the ECG sensors and the eye movement sensors would need extra cables to properly clip on, so we stripped some wires and wrapped them around the sensor electrodes to increase signal clarity as much as possible.
+A 3-D accelerometer was used first, since the lab already had some in stock. It was powered by the Mbed's 3.3 volt output. The accelerometer's "baseline" readings were recorded so that rapid changes in velocity could be compared to that baseline. Then print statements were sent to the terminal only when large changes were recorded.
+
+We unfortunately did not realize the ECG sensors and the eye movement sensors would need extra cables to properly clip on, so we stripped some wires and wrapped them around the sensor electrodes to increase signal clarity as much as possible. This still resulted in noisy outputs, so we were unable to present reliable data for the first demo.
 
 Week 4 (April 8 - April 15):
 
-A breakout board and proper cables were ordered for the second demo. The ECG sensors seemed better at reading heart rate than breathing rate, so we did not implement breathing rate in the final product. To enhance the heart rate sensor, we implemented an instrumentation amplifier to increase the ouput's gain.
+A breakout board and proper cables were ordered for the second demo. They were also powered by the Mbed's 3.3 volt output. The ECG sensors seemed better at reading heart rate than breathing rate, so we did not implement breathing rate in the final product. To enhance the heart rate sensor, we implemented an instrumentation amplifier (AD620AN) to increase the ouput's gain by 1000 using a 50 Ohm resistor, since the voltage varied around 1 mV initially. The amplifier needed a much larger voltage supply however, so it was powered externally by positive and negative 9 volts from a power supply in the lab.
+
+We also switched to the MRF24J40 radio chips instead of the ESP8266 Wi-Fi modules this week, since it only requires that both chips be relatively near each other and that they are sharing the same channel. One chip was connected to the Mbed in current use (and powered by its 3.3 volt output) so that we could test that one alone and then later implement the second Mbed and its MRF24J40. We looked at some example code for the MRF24J40, but it was difficult to find much due to the lack of documentation. Eventually an instructor was able to find helpful documentation for us, and we began once again with a header file and its corresponding .cpp file.
 
 Week 5 (April 16 - April 23):
 
