@@ -120,6 +120,8 @@ We realized that the breakout board that we had been using to read heart rate si
 
 The morning before the reach demo, the motor was replaced with a 1 kOhm resistor and an LED, for visual demo purposes, but one of the MRF24J40 chips stopped working. Despite replacing both of the MRF24J40 chips, both of the Mbeds, and using new breadboards, we still couldn't get the Mbeds to communicate with each other via the MRF24J40 chips (like they had earlier) before the reach demo. Nonetheless, we were able to show that we had correct code such that the LED in the larger breadboard for the forehead would turn on when the user had their eyes closed for 20 seconds.
 
+![IMG_0891](https://user-images.githubusercontent.com/36114238/57408502-ca61c300-71b3-11e9-9843-8ea2fcf155fe.jpg)
+
 Week 7 (May 2 - May 8):
 
 We repaired and finished our project. We discovered that one pin was connected to the wrong port of the MRF24J40, and one of the two MRF24J40 chips was not working. We had switched that MRF24J40 out with a different one, in a previous attempt to get our project to work, but that MRF24J40 was also not working. Eventually, we successfully obtained two properly working MRF24J40 chips. With the radio and Mbeds now working and communicating with each other via our written code for sending and receiving messages, we began modifying the code such that the data from all 3 sensors —heart rate, eye movement, and accelerometer — was being analyzed. If the heart rate was lower than average or the accelerometer was abruptly shook, the motor on the larger breadboard would vibrate for 10 seconds. If no blinking was detected for 20 seconds or more, the motor on the smaller breadboard would vibrate for 10 seconds.
