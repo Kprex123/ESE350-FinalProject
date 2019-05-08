@@ -8,6 +8,7 @@ Katrina Pham
 
 May 10, 2019
 
+![IMG_0892](https://user-images.githubusercontent.com/36114238/57407707-d3519500-71b1-11e9-8efe-09a6b30a37e9.jpg)
 
 Week 1 (March 15 - March 22):
 
