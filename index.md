@@ -105,6 +105,7 @@ A breakout board and proper cables were ordered for the second demo. They were a
 
 We also switched to the MRF24J40 radio chips instead of the ESP8266 Wi-Fi modules this week, since it only requires that both chips be relatively near each other and that they are sharing the same channel. One chip was connected to the Mbed in current use (and powered by its 3.3 volt output) so that we could test that one alone and then later implement the second Mbed and its MRF24J40.
 
+![IMG_20190414_141238](https://user-images.githubusercontent.com/36114238/57408266-3132ac80-71b3-11e9-9a4b-802831542b94.jpg)
 
 Week 5 (April 16 - April 23):
 
