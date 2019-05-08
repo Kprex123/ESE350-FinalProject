@@ -1,6 +1,6 @@
-#Slap-a-Nap Pack
+# Slap-a-Nap Pack
 
-##ESE 350-001
+## ESE 350-001
 
 Cassandra Menshouse
 
@@ -10,12 +10,12 @@ May 10, 2019
 
 ![IMG_0892](https://user-images.githubusercontent.com/36114238/57407707-d3519500-71b1-11e9-8efe-09a6b30a37e9.jpg)
 
-##Week 1 (March 15 - March 22):
+## Week 1 (March 15 - March 22):
 
 The initial proposal for our final project was first enacted on March 22. The problem we sought to solve was that of people who suffer from narcolepsy or similar obstacles and fall unconscious at unpedictable times. We wanted to improve this situation by creating a system to detect when the user falls asleep, to collect that data, and to buzz to wake them up.
 
 
-###Baseline Goals:
+### Baseline Goals:
 
 ● Use a wearable sensor to determine when the user is falling asleep (either breathing rate, heart rate, or head movement when the user is "nodding off")
 
@@ -26,12 +26,12 @@ The initial proposal for our final project was first enacted on March 22. The pr
 ● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should also not cause pain)
 
 
-###Reach Goal:
+### Reach Goal:
 
 ● Start an app on the Samsung Galaxy Watch or some equivalent wearable device to process this data and display it graphically
 
 
-###Need to Learn More in Depth:
+### Need to Learn More in Depth:
 
 ● Samsung Galaxy/Android API
 
@@ -45,19 +45,19 @@ The initial proposal for our final project was first enacted on March 22. The pr
 For testing, Katrina herself shall be the subject since she has severe anemia. This causes her blood cells to bind to oxygen at a lesser rate, therefore her body exhausts its energy quickly. This means she falls unconscious at unpredictable hours, making her a prime test subject.
 
 
-##Week 2 (March 23 - March 30):
+## Week 2 (March 23 - March 30):
 
 The second proposal for our final project was enacted on March 29. We refined the system by focusing more on the sensor feedback loop rather than the data collection.
 
 
-###Overall System Architecture:
+### Overall System Architecture:
 
 Our system has a closed loop because it operates under the following process:
 
 The person starts falling asleep -> The sensors detect the person falling asleep -> The buzzer is activated by the sensors -> The person wakes up -> The sensor goes back to its original state of waiting to activate the buzzer -> The person starts falling asleep again -> … (Repeats cyclically)
 
 
-###Baseline Goals (Updated):
+### Baseline Goals (Updated):
 
 ● Use a sensor (ECoG) to determine when the user is falling asleep
 
@@ -68,7 +68,7 @@ The person starts falling asleep -> The sensors detect the person falling asleep
 ● Use a buzzer that receives the data and activates when the user falls asleep (the buzzer will only vibrate, so no sound should be produced to reduce disruptions in quiet settings and it should also not cause pain)
 
 
-###Stretch Goals (Updated):
+### Stretch Goals (Updated):
 
 ● Determine levels of exhaustion (starting to fall asleep versus being fully asleep) via breathing rate sensor and an accelerometer (head movement when the user is "nodding off")
 
@@ -77,7 +77,7 @@ The person starts falling asleep -> The sensors detect the person falling asleep
 ● Control amount of vibration based on how heavily asleep the user is
 
 
-###Need to Learn More in Depth (Updated):
+### Need to Learn More in Depth (Updated):
 
 ● PCB
 
@@ -88,7 +88,7 @@ The person starts falling asleep -> The sensors detect the person falling asleep
 ● Photon (main microcontroller)
 
 
-##Week 3 (March 31 - April 7):
+## Week 3 (March 31 - April 7):
 
 We began obtaining parts for the first demo. Since Photons were not already available in the lab, we switched to the ESP32-WROOM-32 because it also has on-board Wi-Fi. The accompanying software program we used was called Zerynth, which used hybrid C++. After many unsuccessful attempts to get the ESP32-WROOM-32 registered and running, we realized that we could just use an Mbed and an ESP8266 Wi-Fi module instead to achieve a similar (if not an entirely better) result. 
 
@@ -99,7 +99,7 @@ A 3-D accelerometer was used first, since the lab already had some in stock. It 
 We unfortunately did not realize the ECG sensors and the eye movement sensors would need extra cables to properly clip on, so we stripped some wires and wrapped them around the sensor electrodes to increase signal clarity as much as possible. This still resulted in noisy outputs, so we were unable to present reliable data for the first demo.
 
 
-##Week 4 (April 8 - April 15):
+## Week 4 (April 8 - April 15):
 
 A breakout board and proper cables were ordered for the second demo. They were also powered by the Mbed's 3.3 volt output. The ECG sensors seemed better at reading heart rate than breathing rate, so we did not implement breathing rate in the final product. To enhance the heart rate sensor, we implemented an instrumentation amplifier (AD620AN) to increase the ouput's gain by 1000 using a 50 Ohm resistor, since the voltage varied around 1 mV initially. The amplifier needed a much larger voltage supply however, so it was powered externally by positive and negative 9 volts from a power supply in the lab.
 
@@ -107,14 +107,14 @@ We also switched to the MRF24J40 radio chips instead of the ESP8266 Wi-Fi module
 
 ![IMG_20190414_141238](https://user-images.githubusercontent.com/36114238/57408266-3132ac80-71b3-11e9-9a4b-802831542b94.jpg)
 
-##Week 5 (April 16 - April 23):
+## Week 5 (April 16 - April 23):
 
 To reduce the noise from the heart rate sensor, we built a lowpass filter that took in the amplified signal from the instrumentation amplifier. It worked quite well and smoothed out the signal. The resistor value was 2 kOhms and 3 capacitors in parallel were used: one at 1 uF and two at 4.5 uF to make a total of 10 uF. We then built a PCB in Altium to hold both the amplifier and the filter. Some headers were also added to that PCB for the external power, as well as input and output wires.
 
 We looked at some example code for the MRF24J40, but it was difficult to find much due to the lack of documentation. Eventually an instructor was able to find helpful documentation for us, and we began once again with a header file and its corresponding .cpp file. The Mbeds only needed to communicate in one direction, with one Mbed transmitting (the one on the head) and the other receiving (the one on the wrist). This increased our code's clarity since we could reliably depend on which direction the data is being sent.
 
 
-##Week 6 (April 24 - May 1):
+## Week 6 (April 24 - May 1):
 
 We realized that the breakout board that we had been using to read heart rate signals was in fact a muscle sensor, so the readings were inaccurate for several weeks. Thankfully, we were able to use a heart rate sensor breakout board from another group. With this now working, we began trying to make our project more compact and to have our Mbeds to communicate with each other via the MRF24J40 chips. We stripped wires and used smaller breadboards to achieve compactness. After much trial and error with the MRF24J40 chips, we successfully created a C++ project that, using the online Mbed compiler, could send a signal from one Mbed to the other. This signal would be of a pre-determined length if the receiving Mbed's motor was to turn on. With this code, we were able to turn on and off the motor in the second Mbed from the first Mbed's transmitted signal.
 
@@ -122,7 +122,7 @@ The morning before the reach demo, the motor was replaced with a 1 kOhm resistor
 
 ![IMG_0891](https://user-images.githubusercontent.com/36114238/57408502-ca61c300-71b3-11e9-9843-8ea2fcf155fe.jpg)
 
-##Week 7 (May 2 - May 8):
+## Week 7 (May 2 - May 8):
 
 We repaired and finished our project. We discovered that one pin was connected to the wrong port of the MRF24J40, and one of the two MRF24J40 chips was not working. We had switched that MRF24J40 out with a different one, in a previous attempt to get our project to work, but that MRF24J40 was also not working. Eventually, we successfully obtained two properly working MRF24J40 chips. With the radio and Mbeds now working and communicating with each other via our written code for sending and receiving messages, we began modifying the code such that the data from all 3 sensors —heart rate, eye movement, and accelerometer — was being analyzed. If the heart rate was lower than average or the accelerometer was abruptly shook, the motor on the larger breadboard would vibrate for 10 seconds. If no blinking was detected for 20 seconds or more, the motor on the smaller breadboard would vibrate for 10 seconds.
 
