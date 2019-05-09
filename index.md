@@ -122,7 +122,7 @@ The morning before the reach demo, the motor was replaced with a 1 kOhm resistor
 
 ![IMG_0891](https://user-images.githubusercontent.com/36114238/57408502-ca61c300-71b3-11e9-9843-8ea2fcf155fe.jpg)
 
-## Week 7 (May 2 - May 8):
+## Week 7 (May 2 - May 8) Post-ReachDemo:
 
 We repaired and finished our project. We discovered that one pin was connected to the wrong port of the MRF24J40, and one of the two MRF24J40 chips was not working. We had switched that MRF24J40 out with a different one, in a previous attempt to get our project to work, but that MRF24J40 was also not working. Eventually, we successfully obtained two properly working MRF24J40 chips. With the radio and Mbeds now working and communicating with each other via our written code for sending and receiving messages, we began modifying the code such that the data from all 3 sensors —heart rate, eye movement, and accelerometer — was being analyzed. If the heart rate was lower than average or the accelerometer was abruptly shook, the motor on the larger breadboard would vibrate for 10 seconds. If no blinking was detected for 20 seconds or more, the motor on the smaller breadboard would vibrate for 10 seconds.
 
